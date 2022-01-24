@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">E-videncija</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href={{ url_for('studenti') }}>Studenti</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href={{ url_for('predmeti') }}>Predmeti</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href={{ url_for('korisnici') }}>Korisnici <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a href={{ url_for('logout') }} class="btn icon">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </form>
+  </div>
+</nav>
+
+  <div class="container">
+  
+    <form action={{ url_for('korisnik_izmena', id=korisnik.id) }} class="col-lg-6 " id="korisnik_izmena" method="POST" style="padding: 2rem;">
+      <div class="form-column">
+      <h3 style="margin: 0 0 2rem 0.5rem;">Izmeni korisnika</h3>
+  
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault01">Ime</label>
+          <input type="text" class="form-control" name="ime" id="validationDefault01" value={{ korisnik.ime }} required>
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault02">Prezime</label>
+          <input type="text" class="form-control" name="prezime" id="validationDefault02" value={{ korisnik.prezime }} required>
+        </div>
+      </div>
+  
+      <div>
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault03">E-Mail</label>
+          <input type="email" class="form-control" name="email" id="validationDefault03" value={{ korisnik.email }} required>
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <label for="rola">Rola</label>
+          <select name="rola" type="text" class="form-control">
+            <option value="" {% if korisnik.rola=="" %} selected {% endif %} disabled>-- Izaberite rolu --</option>
+            <option value="administrator" {% if korisnik.rola=="administrator" %} selected {% endif %}>Administrator</option>
+            <option value="profesor" {% if korisnik.rola=="profesor" %} selected {% endif %}>Profesor</option>
+          </select>
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault04">Lozinka</label>
+          <input type="password" id="inputPass" class="form-control" name="lozinka" value="********" required />
+        </div>
+  
+      </div>
+      <input class="btn btn-primary" type="submit" role="button" value="Sačuvaj" style="margin: 3rem 1rem;">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">E-videncija</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href={{ url_for('studenti') }}>Studenti</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href={{ url_for('predmeti') }}>Predmeti</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href={{ url_for('korisnici') }}>Korisnici</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a href={{ url_for('logout') }} class="btn icon">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </form>
+  </div>
+</nav>
+
+  <div class="container">
+  
+    <form action={{ url_for('predmet_izmena', id=predmet.id) }} class="col-lg-6 " id="korisnik_izmena" method="POST" style="padding: 2rem;">
+      <div class="form-column">
+      <h3 style="margin: 0 0 2rem 0.5rem;">Izmeni predmet</h3>
+  
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault01">Šifra</label>
+          <input type="text" class="form-control" name="sifra" id="validationDefault01" value={{ predmet.sifra }} required>
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault02">Naziv</label>
+          <input type="text" class="form-control" name="naziv" id="validationDefault02" value={{ predmet.naziv }} required>
+        </div>
+      </div>
+  
+      <div>
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault03">Godina studija</label>
+          <input type="number" class="form-control" name="godina_studija" id="validationDefault03" value={{ predmet.godina_studija }} required>
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <label for="rola">ESPB</label>
+          <input type="number" class="form-control" name="espb" id="validationDefault01" value={{ predmet.espb }} required>
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault04">Obavezni/Izborni</label>
+          <input type="text" id="validationDefault01" class="form-control" name="obavezni_izborni" value={{ predmet.obavezni_izborni }} required />
+        </div>
+  
+      </div>
+      <input class="btn btn-primary" type="submit" role="button" value="Sačuvaj" style="margin: 3rem 1rem;">
+    </form>
+</div>
+
+{% endblock %}

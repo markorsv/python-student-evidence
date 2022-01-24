@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<div class="container">
+    <div class="row justify-content-center my-5">
+        <img src="/static/img/logo.png" alt="">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-xd-12">
+            <form action={{ url_for('login') }} method="POST">
+                <div class="form-group">
+                    <label for="">Email adresa</label>
+                    <input type="email" name="email" id="inputEmail" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="">Lozinka</label>
+                    <input type="password" name="lozinka" id="inputPass" class="form-control" required />
+                </div>
+                <input type="submit" class="btn btn-primary" role="button" value="Prijavi se">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

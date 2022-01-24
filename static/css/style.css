@@ -1,0 +1,85 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Numito', sans-serif;
+}
+
+
+.navbar{
+    background-image: linear-gradient(-90deg, #d38312, #a83279);
+}
+
+.nav-link{
+    font-size: 16px;
+    margin: 3px;
+    color: #fff!important;
+    font-weight: 500;
+}
+
+.navbar-nav{
+    padding-left: 50px;
+    padding-top: 5px;
+}
+
+.menu-bar .navbar-toggler{
+    padding-right: 20px;
+    outline: none!important;
+    border: none!important;
+}
+
+.navbar .fa{
+    color: #fff!important;
+    font-size: 26px;
+}
+
+.nav-link:hover{
+    font-weight: 600;
+    border-bottom: 1px solid #fff;
+}
+
+.navbar-brand{
+    width: 150px;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 1000px){
+    .nav-link:hover {
+        border-bottom: none!important;
+    }
+}
+
+a.icon{
+    color: #fff;
+}
+
+#slika_pregled {
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    background-color: #999999;
+    object-fit: cover;
+    }
+
+    table,
+    .prvi-th {
+        border: hidden;
+    }
+    
+    .sort {
+        font-size: .8em;
+        margin-left: .5em;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* flex-direction: row; */
+        /* background-color: rebeccapurple; */
+        color: #0d6efd;
+    }
+
+button{
+    padding: 0;
+    border: none;
+    background: none;
+}
